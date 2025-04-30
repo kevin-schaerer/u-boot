@@ -25,3 +25,8 @@ int board_init(void)
 {
 		return 0;
 }
+
+int misc_init_r(void)
+{
+	return 0;
+}

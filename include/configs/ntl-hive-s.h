@@ -18,9 +18,7 @@
 
 #define CFG_EXTRA_ENV_SETTINGS \
 	"fdt_addr_r=0x40ef0000\0" \
-	"kernel_addr_r=0x40000000\0" \
-	"image=boot/Image\0" \
-	"mmcdev=0\0" \
-	"mmcpart=1\0"
+	"kernel_addr_r=0x01480000\0" \
+	"image=boot/Image.gz\0"
 
 #endif/* __CONFIG_H */
