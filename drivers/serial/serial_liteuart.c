@@ -105,9 +105,9 @@ static int liteuart_serial_pending(struct udevice *dev, bool input)
     struct uart_liteuart *regs = plat->regs;
 
     if (input)
-        return (readl(&regs->ip) & UART_IP_RXWM);
+        return !(readb(&regs->rxempty));
     else
-        return !!(readl(&regs->txfifo) & UART_TXFIFO_FULL);
+        return !!(readb(&regs->txfull));
 }
 
 static int liteuart_serial_of_to_plat(struct udevice *dev)
