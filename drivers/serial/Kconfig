@@ -1060,6 +1060,13 @@ config HTIF_CONSOLE
 	  console. The HTIF device is quite common in RISC-V emulators and
 	  RISC-V ISS so this driver allows using U-Boot on such platforms.
 
+config LITEUART_SERIAL
+	bool "LiteX UART support"
+	depends on DM_SERIAL
+	help
+	  This driver supports the LiteX UART. If unsure say N.
+
+
 config SIFIVE_SERIAL
 	bool "SiFive UART support"
 	depends on DM_SERIAL
