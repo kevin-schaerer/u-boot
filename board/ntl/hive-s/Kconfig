@@ -13,26 +13,14 @@ config SYS_CONFIG_NAME
 	default "ntl-hive-s"
 
 config TEXT_BASE
-	default 0x41000000 if SPL
-	default 0x40000000 if !RISCV_SMODE
-	default 0x41000000 if RISCV_SMODE
-
-config SPL_TEXT_BASE
-	default 0x42000000
-
-config SPL_OPENSBI_LOAD_ADDR
-	default 0x40000000
+	default 0x40040000 if !RISCV_SMODE
+	default 0x40040000 if RISCV_SMODE
 
 config BOARD_SPECIFIC_OPTIONS # dummy
 	def_bool y
-	select SUPPORT_SPL
 	imply CPU_RISCV
 	imply RISCV_TIMER
-	imply SPL_RISCV_ACLINT
 	imply CMD_CPU
-	imply SPL_CPU_SUPPORT
-	imply SPL_SMP
-	imply SPL_MMC
 	imply SMP
 
 endif
