@@ -9,12 +9,12 @@
 	compatible = "ntl,hive-s";
 
 	chosen {
-		stdout-path = "serial:115200";
+		stdout-path = "uart0:115200";
 	};
 
 	aliases {
-		console = &serial;
-		serial0 = &serial;
+		console = &uart0;
+		serial0 = &uart0;
 	};
 
 	cpus {
@@ -66,12 +66,6 @@
 		interrupt-parent = <0x01>;
 		ranges;
 
-		soc_controller@f0000000 {
-			compatible = "litex,soc-controller";
-			reg = <0xf0000000 0x0c>;
-			status = "okay";
-		};
-
 		interrupt-controller@f0c00000 {
 			compatible = "sifive,fu540-c000-plic\0sifive,plic-1.0.0";
 			reg = <0xf0c00000 0x400000>;
@@ -83,7 +77,7 @@
 			phandle = <0x01>;
 		};
 
-		serial@f0001000 {
+		uart0: serial@f0001000 {
 			compatible = "litex,liteuart";
 			reg = <0xf0001000 0x100>;
 			interrupts = <0x01>;
